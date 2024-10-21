@@ -21,11 +21,11 @@
 
 **S-AES算法流程：**
 
-![img](file://D:\Dowmloads\大三上课程\信息安全导论\CODE\S-AES\img\S-AES算法流程图.png?lastModify=1729486971)
+![img](img\S-AES算法流程图.png?lastModify=1729486971)
 
 **S-AES使用的S盒：**
 
-![img](file://D:\Dowmloads\大三上课程\信息安全导论\CODE\S-AES\img\S盒.png?lastModify=1729486971)
+![img](img\S盒.png?lastModify=1729486971)
 
 ## 项目结构
 
