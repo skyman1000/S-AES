@@ -262,7 +262,7 @@ public class SAES {
         return plainText;
     }
 
-    // 暴力破解函数：输入明文和密文，尝试找到对应的密钥
+    // 中间相遇攻击：输入明文和密文，尝试找到对应的密钥k1+k2
     static void breakOut(String plainText, String cipherText) {
         long startTime = System.currentTimeMillis();
         Map<String, Integer> encryptMap = new HashMap<>();
@@ -300,7 +300,40 @@ public class SAES {
         System.out.println("找到的密钥列表：" + keysFound);
         System.out.println("用时：" + timeTaken + " 秒");
     }
+    // CBC模式加解密
+    // CBC模式加密：传入明文、密钥、初始向量，返回密文列表
+    static List<String> cbcEncrypt(String plaintext, String key, String iv) {
+        List<String> cipherBlocks = new ArrayList<>();
+        // 确保明文长度为16的倍数
+        int blockSize = 16;
+        int totalBlocks = (plaintext.length() + blockSize - 1) / blockSize;
+        String previousCipher = iv;
+        for (int i = 0; i < totalBlocks; i++) {
+            int start = i * blockSize;
+            int end = Math.min((i + 1) * blockSize, plaintext.length());
+            String block = plaintext.substring(start, end);
+            // 如果不足16位，右侧补零
+            block = padRightZeros(block, blockSize);
+            String xored = xor(block, previousCipher);
+            String cipherBlock = enCrypt(xored, key);
+            cipherBlocks.add(cipherBlock);
+            previousCipher = cipherBlock;
+        }
+        return cipherBlocks;
+    }
 
+    // CBC模式解密：传入密文列表、密钥、初始向量，返回明文
+    static String cbcDecrypt(List<String> cipherBlocks, String key, String iv) {
+        StringBuilder plaintext = new StringBuilder();
+        String previousCipher = iv;
+        for (String cipherBlock : cipherBlocks) {
+            String decryptedBlock = deCrypt(cipherBlock, key);
+            String plainBlock = xor(decryptedBlock, previousCipher);
+            plaintext.append(plainBlock);
+            previousCipher = cipherBlock;
+        }
+        return plaintext.toString();
+    }
 
     // 辅助方法：将十六进制字符串转换为指定长度的二进制字符串
     static String hexToBin(String hex, int bits) {
@@ -325,15 +358,27 @@ public class SAES {
         return sb.toString();
     }
 
-
+    // 辅助方法：右侧补零
+    static String padRightZeros(String inputString, int length) {
+        if (inputString.length() >= length)
+            return inputString;
+        StringBuilder sb = new StringBuilder(inputString);
+        while (sb.length() < length) {
+            sb.append('0');
+        }
+        return sb.toString();
+    }
 
     // 主函数用于测试
     public static void main(String[] args) {
         // 测试16Bit二进制加密解密
         // 加密
-        String plainText = "0110111101101011";
+        String plainText = "1010101010101010";
         String key_bit = "1010011100111011";
         String cipherText = enCrypt(plainText, key_bit);
+        System.out.println("测试16Bit二进制加密解密:");
+        System.out.println("明文为："+plainText);
+        System.out.println("密钥为："+key_bit);
         System.out.println("加密后的密文为: " + cipherText);
 
         // 解密
@@ -344,6 +389,7 @@ public class SAES {
         // 测试ASCII加密解密
         String message = "Hello";
         String key_ascii = "10100111001110111010011100111011"; // 32位密钥，双重加密
+        System.out.println("测试ASCII加密解密:");
         System.out.println("原始消息：" + message);
 
         // 加密
@@ -357,17 +403,37 @@ public class SAES {
         // 测试多重加密和解密
         //这里用和测试16bit一样的明文
         //String plainText = "0110111101101011";
-        String multiKey = "10100111001110111010011100111011"; // 32位密钥，双重加密
+        String multiKey = "11110010010010010010100010000110"; // 32位密钥，双重加密
         String multiCipher = multiplyEncrypt(plainText, multiKey);
+        System.out.println("测试多重加密和解密:");
         System.out.println("多重加密后的密文：" + multiCipher);
 
         String multiDecrypted = multiplyDecrypt(multiCipher, multiKey);
         System.out.println("多重解密后的明文：" + multiDecrypted);
 
-        // 测试暴力破解
-        System.out.println("开始暴力破解...");
-        breakOut(plainText, multiCipher);
+        // 测试中间相遇攻击
+        System.out.println("开始进行中间相遇攻击查找密钥...");
+        breakOut(plainText, cipherText);
 
+        // 测试CBC模式
+        String longPlainText = "01101111011010110110111101101011"; // 长度32位
+        String cbcKey = "1010011100111011"; // 16位密钥
+        String iv = "1100101011110101"; // 初始向量
+        List<String> cbcCipherList = cbcEncrypt(longPlainText, cbcKey, iv);
+        System.out.println("使用CBC模式加密的明文:"+longPlainText);
+        System.out.println("CBC加密后的密文列表：" + cbcCipherList);
 
-    }
+        String cbcDecryptedText = cbcDecrypt(cbcCipherList, cbcKey, iv);
+        System.out.println("CBC解密后的明文：" + cbcDecryptedText);
+
+        // 篡改密文测试
+        String modified_keyblock = "0000000000000000";
+        int location = 1;
+        System.out.println("篡改第"+location+"个密文块，"+"篡改内容为："+modified_keyblock);
+        cbcCipherList.set(location, modified_keyblock); // 篡改第二个密文块
+        String tamperedDecryptedText = cbcDecrypt(cbcCipherList, cbcKey, iv);
+        System.out.println("篡改密文后的解密结果：" + tamperedDecryptedText);
+ }
 }
+
+
