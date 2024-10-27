@@ -389,7 +389,7 @@ public class S_AES_GUI {
     private void createCbcPanel() {
         cbcPanel = new JPanel(new GridBagLayout());
         GridBagConstraints gbc = new GridBagConstraints();
-        gbc.insets = new Insets(10, 10, 10, 10);
+        gbc.insets = new Insets(1, 1, 1, 1);
         gbc.anchor = GridBagConstraints.WEST;
 
         gbc.gridx = 0;
@@ -399,7 +399,7 @@ public class S_AES_GUI {
         cbcPanel.add(new JLabel("输入明文/密文:"), gbc);
 
         gbc.gridx = 1;
-        gbc.gridwidth = 2;
+        gbc.gridwidth = 4;
         gbc.fill = GridBagConstraints.HORIZONTAL;
         JTextField inputText = new JTextField();
         cbcPanel.add(inputText, gbc);
@@ -435,9 +435,9 @@ public class S_AES_GUI {
         cbcPanel.add(new JLabel("加密/解密后的结果:"), gbc);
 
         gbc.gridx = 1;
-        gbc.gridwidth = 2;
+        gbc.gridwidth = 4;
         gbc.fill = GridBagConstraints.BOTH;
-        JTextArea resultArea = new JTextArea();
+        JTextArea resultArea = new JTextArea(1,40);
         resultArea.setEditable(false);
         JScrollPane scrollPane = new JScrollPane(resultArea);
         cbcPanel.add(scrollPane, gbc);

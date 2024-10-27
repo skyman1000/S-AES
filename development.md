@@ -70,30 +70,30 @@
 ```java
 public class SAES {
     // 静态方法列表
-    static String enCrypt(String plainText, String key)
-    static String deCrypt(String cipherText, String key)
-    static List<String> asciiEncrypt(String str, String key)
-    static String asciiDecrypt(List<String> cyberList, String key)
-    static String multiplyEncrypt(String plainText, String key)
-    static String multiplyDecrypt(String cyberText, String key)
-    static void breakOut(String plainText, String cipherText)
-    static List<String> cbcEncrypt(String plaintext, String key, String iv)
-    static String cbcDecrypt(List<String> cipherBlocks, String key, String iv)
+    static String enCrypt(String plainText, String key);
+    static String deCrypt(String cipherText, String key);
+    static String asciiEncrypt(String str, String key);
+    static String asciiDecrypt(String cyberList, String key);
+    static String multiplyEncrypt(String plainText, String key);
+    static String multiplyDecrypt(String cyberText, String key);
+    static List<String> breakOut(String plainText, String cipherText);
+    static String cbcEncrypt(String plaintext, String key, String iv);
+    static String cbcDecrypt(String cipherBlocks, String key, String iv);
     // 辅助方法
-    static String hexToBin(String hex, int bits)
-    static String intToBin(int num, int bits)
-    static String padLeftZeros(String inputString, int length)
-    static String padRightZeros(String inputString, int length)
-    static String[][] toStateMatrix(String bytetext)
-    static String reStateMatrix(String[][] matrix)
-    static String xor(String text1, String text2)
-    static String halfByteReplace(String text, String[][] Box)
-    static String leftShift(String text)
-    static int gfAdd(int a, int b)
-    static int gfMultiply(int a, int b)
-    static String colMix(String[][] colMatrix, String byteText)
-    static String G(String byteText, String cons, String[][] Box)
-    static String expandKey(String key, String cons, String[][] Box)
+    static String hexToBin(String hex, int bits);
+    static String intToBin(int num, int bits);
+    static String padLeftZeros(String inputString, int length);
+    static String padRightZeros(String inputString, int length);
+    static String[][] toStateMatrix(String bytetext);
+    static String reStateMatrix(String[][] matrix);
+    static String xor(String text1, String text2);
+    static String halfByteReplace(String text, String[][] Box);
+    static String leftShift(String text);
+    static int gfAdd(int a, int b);
+    static int gfMultiply(int a, int b);
+    static String colMix(String[][] colMatrix, String byteText);
+    static String G(String byteText, String cons, String[][] Box);
+    static String expandKey(String key, String cons, String[][] Box);
 }
 ```
 
@@ -197,25 +197,25 @@ static String deCrypt(String cipherText, String key) {
 
 ---
 
-#### `static List<String> asciiEncrypt(String str, String key)`
+#### `static String asciiEncrypt(String str, String key)`
 
-**描述**：将输入的ASCII字符串分字符加密，每个字符使用16位二进制表示，返回加密后的密文列表。
+**描述**：将输入的ASCII字符串分字符加密，每个字符使用16位二进制表示，返回加密后的密文字符串。
 
 **参数**：
 - `str`：要加密的ASCII字符串。
 - `key`：密钥二进制字符串（长度为16的倍数，例如32位表示双重加密）。
 
 **返回**：
-- 加密后的密文列表，每个元素为16位二进制字符串。
+- 加密后的密文字符串。
 
 ---
 
-#### `static String asciiDecrypt(List<String> cyberList, String key)`
+#### `static String asciiDecrypt(String cyberList, String key)`
 
-**描述**：对加密后的密文列表进行解密，恢复为原始ASCII字符串。
+**描述**：对加密后的密文字符串进行解密，恢复为原始ASCII字符串。
 
 **参数**：
-- `cyberList`：密文列表，每个元素为16位二进制字符串。
+- `cyberList`：密文字符串。
 - `key`：密钥二进制字符串（长度为16的倍数，例如32位表示双重解密）。
 
 **返回**：
@@ -249,7 +249,7 @@ static String deCrypt(String cipherText, String key) {
 
 ---
 
-#### `static void breakOut(String plainText, String cipherText)`
+#### `static List<String> breakOut(String plainText, String cipherText)`
 
 **描述**：实现中间相遇攻击，通过已知的明文和密文尝试找到对应的密钥组合（K1 + K2）。
 
@@ -258,11 +258,11 @@ static String deCrypt(String cipherText, String key) {
 - `cipherText`：已知的密文二进制字符串（16位）。
 
 **返回**：
-- 无返回值，结果直接输出到控制台，包括找到的密钥列表和所用时间。
+- 返回密钥列表。
 
 ---
 
-#### `static List<String> cbcEncrypt(String plaintext, String key, String iv)`
+#### `static String cbcEncrypt(String plaintext, String key, String iv)`
 
 **描述**：使用CBC模式对较长的明文进行加密。明文按16位分块，初始向量（IV）为16位二进制字符串。
 
@@ -272,16 +272,16 @@ static String deCrypt(String cipherText, String key) {
 - `iv`：初始向量二进制字符串（16位）。
 
 **返回**：
-- 加密后的密文列表，每个元素为16位二进制字符串。
+- 加密后的密文二进制字符串。
 
 ---
 
-#### `static String cbcDecrypt(List<String> cipherBlocks, String key, String iv)`
+#### `static String cbcDecrypt(String cipherBlocks, String key, String iv)`
 
 **描述**：使用CBC模式对密文列表进行解密，恢复为原始明文。
 
 **参数**：
-- `cipherBlocks`：密文列表，每个元素为16位二进制字符串。
+- `cipherBlocks`：密文二进制字符串。
 - `key`：密钥二进制字符串（16位）。
 - `iv`：初始向量二进制字符串（16位）。
 
