@@ -5,26 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="2514060b-9e0e-4f93-8fc5-4e0138814e51" name="更改" comment="提交成功">
-      <change afterPath="$PROJECT_DIR$/img.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/img/BasicPanel.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/img/BreakoutPanel.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/img/CbcPanel.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/img/MultiplyPanel.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/img/ascii_decrypt.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/img/ascii_encrypt.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/img/binary_decrypt.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/img/binary_encrypt.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/img/breakOut.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/img/cbc_decrypt.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/img/cbc_encrypt.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/img/cbc_tamper_encrypt.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/img/mainFrame.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/img/multiply_decrypt.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/img/multiply_encrypt.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/img/crossTest_decrypt.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/img/crossTest_encrypt.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/development.md" beforeDir="false" afterPath="$PROJECT_DIR$/development.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/S_AES/S_AES/S_AES_GUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/S_AES/S_AES/S_AES_GUI.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/testResult.md" beforeDir="false" afterPath="$PROJECT_DIR$/testResult.md" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -53,27 +37,32 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
-    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;D:/developmentTools/javaCode/S_Des&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;onboarding.tips.debug.path&quot;: &quot;D:/Dowmloads/大三上课程/信息安全导论/CODE/S-AES/src/Main.java&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;模块&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.1484375&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;,
-    &quot;应用程序.SAES.executor&quot;: &quot;Run&quot;,
-    &quot;应用程序.S_AES_GUI.executor&quot;: &quot;Run&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "git-widget-placeholder": "master",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "D:/developmentTools/javaCode/S-AES-master/img",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "onboarding.tips.debug.path": "D:/Dowmloads/大三上课程/信息安全导论/CODE/S-AES/src/Main.java",
+    "project.structure.last.edited": "模块",
+    "project.structure.proportion": "0.1484375",
+    "project.structure.side.proportion": "0.2",
+    "vue.rearranger.settings.migration": "true",
+    "应用程序.SAES.executor": "Run",
+    "应用程序.S_AES_GUI.executor": "Run"
   }
-}</component>
+}]]></component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\developmentTools\javaCode\S-AES-master\img" />
+    </key>
+  </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="应用程序级" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="默认任务">
@@ -88,7 +77,8 @@
       <workItem from="1729904751899" duration="2667000" />
       <workItem from="1729929400914" duration="2572000" />
       <workItem from="1729932065849" duration="423000" />
-      <workItem from="1730002828247" duration="4588000" />
+      <workItem from="1730002828247" duration="4983000" />
+      <workItem from="1730030169877" duration="1235000" />
     </task>
     <task id="LOCAL-00001" summary="提交成功">
       <option name="closed" value="true" />
@@ -98,7 +88,23 @@
       <option name="project" value="LOCAL" />
       <updated>1729932254008</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="提交成功">
+      <option name="closed" value="true" />
+      <created>1730009018530</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1730009018530</updated>
+    </task>
+    <task id="LOCAL-00003" summary="提交成功">
+      <option name="closed" value="true" />
+      <created>1730009246187</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1730009246187</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -116,6 +122,7 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
+    <MESSAGE value="Merge remote-tracking branch 'origin/master'" />
     <MESSAGE value="提交成功" />
     <option name="LAST_COMMIT_MESSAGE" value="提交成功" />
   </component>
